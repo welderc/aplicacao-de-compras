@@ -3,6 +3,7 @@ public class Compra implements Comparable<Compra>{
     private String nomeProduto;
     private double valor;
 
+    // Usuário e produto
     public Compra(String nomeUsuario, String nomeProduto, double valor) {
         this.nomeUsuario = nomeUsuario;
         this.nomeProduto = nomeProduto;
@@ -29,10 +30,9 @@ public class Compra implements Comparable<Compra>{
                 getNomeProduto() +" - "+ getValor()+"\n"+
                 "\n********************************************\n"+
                 "Saldo do cartão: ";
-
-
     }
 
+    // Converte os valores "valor" para Double e os compara para organizar as compras em ordem crescente
     @Override
     public int compareTo(Compra outraCompra) {
         return Double.valueOf(this.valor).compareTo(Double.valueOf(outraCompra.valor));

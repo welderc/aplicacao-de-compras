@@ -1,24 +1,23 @@
 import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         String continuarCompra;
 
-
         Scanner scanner = new Scanner(System.in);
 
+        // Dados do usuário
         System.out.print("Seja bem-vindo! Informe seu nome: ");
         String nome = scanner.nextLine();
 
-        // Dados do usuário
+
         System.out.printf("Digite o limite do cartão, %s: ", nome);
         double limite = scanner.nextDouble();
 
         CartaoDeCredito cartao = new CartaoDeCredito(limite);
 
+        // Produtos
         do {
             System.out.printf("Insira o nome do produto, %s: ", nome);
             String nomeProduto = scanner.next();
@@ -28,6 +27,7 @@ public class Main {
             scanner.nextLine();
 
             var compra = new Compra(nome ,nomeProduto, valor);
+
             boolean compraRealizada = cartao.lancaCompra(compra);
 
             if(compraRealizada) {
@@ -44,15 +44,16 @@ public class Main {
 
         System.out.println("******************************");
         System.out.println("COMPRAS REALIZADAS: \n");
-        // produtos do usuário ordenados
+        // Produtos do usuário ordenados
         Collections.sort(cartao.getCompras());
 
-        // produtos do usuário
+        // Produtos do usuário
         for (Compra c : cartao.getCompras()) {
             System.out.println(c.getNomeProduto()+ " - " +c.getValor());
         }
         System.out.println("\n******************************");
 
-        //Lista de usuários e suas compras
+        // Saldo final
+        System.out.println("\nSaldo do cartão: " +cartao.getSaldoNoCartao());
     }
 }

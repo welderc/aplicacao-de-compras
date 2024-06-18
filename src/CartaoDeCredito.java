@@ -8,12 +8,14 @@ public class CartaoDeCredito {
 
     private List<Compra> compras;
 
+    // Cria lista de compras
     public CartaoDeCredito(double limiteCartao) {
         this.limiteCartao = limiteCartao;
         this.saldoNoCartao = limiteCartao;
         this.compras = new ArrayList<>();
     }
 
+    // Adiciona na lista de compras
     public boolean lancaCompra(Compra compra) {
         if(this.saldoNoCartao >= compra.getValor()){
             this.saldoNoCartao -= compra.getValor();
